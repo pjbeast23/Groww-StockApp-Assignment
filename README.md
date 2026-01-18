@@ -651,7 +651,7 @@ cd android
 - Git history showing development progression
 
 ### **2. Working APK**
-📱 **[Download from Google Drive](YOUR_DRIVE_LINK_HERE)**
+📱 **[Download from Google Drive](https://drive.google.com/file/d/1zzywmwYKR7YbgCjdid43asrIBRepqvNq/view?usp=sharing)**
 
 **APK Details**:
 - **Type**: Debug build with bundled JavaScript
