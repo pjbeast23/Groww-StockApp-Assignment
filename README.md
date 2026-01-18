@@ -686,11 +686,9 @@ cd android
 ---
 
 **Developer**: Paras Jain  
-**Institution**: [Your College/University]  
-**Contact**: [Your Email/LinkedIn]  
+**Institution**: NSUT
+**Contact**: [pj9279247@gmail.com]
 **Completion Date**: January 2026  
-**Total Development Time**: ~40 hours  
-**Lines of Code**: ~4,500 (excluding node_modules)
 
 ---
 
