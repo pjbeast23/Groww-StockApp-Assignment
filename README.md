@@ -1,104 +1,104 @@
-# 📉 StockApp - Premium Stocks & ETFs Platform
+# � Groww-Inspired Stocks & ETFs Platform
 
-A high-performance, feature-rich React Native application inspired by the **Groww** aesthetic. This platform provides real-time market insights, global index tracking, and personalized watchlist management.
-
----
-
-## 🚀 Key Features
-
-### 1. Explore & Market Intelligence
-*   **Top Gainers & Losers**: Real-time grid of market movers with dynamic sentiment color-coding.
-*   **Global Index Tracker**: Live monitoring of S&P 500 (SPY), NASDAQ 100 (QQQ), and Dow Jones (DIA).
-*   **Market Status Indicator**: Intelligent detection of US market operating hours (Open/Closed).
-*   **Interactive News**: Dynamic market news feed from Alpha Vantage with full-article browsing.
-
-### 2. Advanced Watchlist System
-*   **Multi-Watchlist Support**: Create, manage, and delete multiple custom watchlists.
-*   **Seamless Integration**: Add/remove stocks directly from the product details screen using a premium modal selector.
-*   **Persistence**: Powered by `AsyncStorage` for local data retention across sessions.
-
-### 3. Product Deep-Dive
-*   **Institutional Data**: Comprehensive company overviews including P/E ratios, Dividends, and Market Cap.
-*   **Victory Charts**: High-performance line graphs for historical price action.
-*   **Technical Indicators**: Toggleable **20-day Simple Moving Average (SMA)** overlay for technical analysis.
-
-### 4. Search & Discovery
-*   **Global Search**: Instant ticker search across all Alpha Vantage supported assets.
-*   **View All**: Paginated list views for deep exploration of market segments.
+A high-performance, resilient, and visually stunning React Native application for stock market exploration and watchlist management. Developed as an advanced solution for the stocks/ETFs broking platform assignment.
 
 ---
 
-## 🛠️ Technical Architecture
-
-### 🛡️ Resilience & Optimization
-*   **Hybrid Data Layer**: A dual-logic system that uses live API data but automatically switches to **High-Quality Fallbacks** if API rate limits (Alpha Vantage 25-req/day) are encountered.
-*   **Smart Caching Engine**: Custom-built `AsyncStorage` cache with per-endpoint expiration logic:
-    *   Top Gainers: 30 mins
-    *   Company Stats: 24 hours
-    *   Charts: 15 mins
-*   **Parallel Fetching**: Utilizes `Promise.all` to fetch up to 6 different data points simultaneously, reducing screen load time by ~60%.
-
-### 🎨 Design System (The "Groww" Aesthetic)
-*   **Theme Engine**: Full support for **Light Mode** and **Dark Mode**, toggleable from the header.
-*   **Custom UI Components**: 
-    *   `StockCard`: Versatile card variant for lists and grids.
-    *   `SafeAreaWrapper`: Advanced safe-area handling for modern devices with notches/status bars.
-    *   `StateHandlers`: Standardized Loading, Error (with Retry), and Empty states.
+## 🌟 Overview
+This application provides a comprehensive trading-desk experience, allowing users to track market movers, perform technical research, and organize their portfolio through custom watchlists. It is designed with a **"Performance First"** mindset, ensuring a smooth experience even under strict API rate limits.
 
 ---
 
-## 📂 Project Structure
+## 🚀 Requirement Compliance Checklist
 
+### ✅ Core Functionality
+- **Dual Tab Architecture**: Seamless navigation between **Explore** and **Watchlist** modules.
+- **Explore Screen**: Dynamic grid layout showcasing **Top Gainers** and **Top Losers** fetched via Alpha Intelligence API.
+- **Product Details Screen**:
+  - Detailed company overview (Fundamental Data).
+  - High-fidelity **Line Graphs** for price action visualization.
+  - Interactive **Watchlist Toggle** (Dynamic star icon states).
+- **Advanced Watchlist Management**:
+  - Multi-watchlist support (Create new or select existing).
+  - Persistence logic for saving and retrieving user-curated lists.
+- **View All Screen**: Full-screen list view for gainers/losers with built-in **Navigation Pagination**.
+
+### 🛠️ Technical Excellence
+- **Alpha Vantage Integration**: Full implementation of Intelligence, Fundamental, and Core Stocks APIs.
+- **State Handling**: Standardized and consistent **Loading**, **Error (with Retry)**, and **Empty states** across all screens.
+- **Standard Folder Structure**: Clean, modular, and professional directory organization (Atomic Design inspired).
+- **Third-Party Visualization**: Integrated `victory-native` for industry-standard financial charting.
+- **Intelligent Caching Engine**:
+  - **Expiration Logic**: Configurable TTL (Time-To-Live) for different data types (e.g., 30m for gainers, 24h for overviews).
+  - **AsyncStorage Persistence**: Cache survives app restarts to minimize redundant API calls.
+
+---
+
+## 🏆 Brownie Points (Above & Beyond)
+
+### 🎨 Premium UI/UX
+- **Groww Aesthetic**: Deep slate and vibrant accent colors (Groww Green/Red).
+- **Dynamic Theming**: Full **Light & Dark Mode** support with a global context toggle.
+- **Micro-Animations**: Smooth transitions and interaction feedback for a premium feel.
+
+### ⚡ Optimizations
+- **Network Efficiency**: Staggered API fetching and request batching.
+- **Asset Management**: Optimized SVG icons and lazy-loading for heavy UI components.
+- **Environment Security**: Sensitive API keys are managed via **`.env`** integration (using `react-native-dotenv`) to prevent security leaks in public repositories.
+
+### ➕ Extra Functionality
+- **Market News Sentiment**: Real-time market-moving stories with sentiment analysis scores.
+- **Live Market Status**: Real-time detection of US market hours (Open/Closed status).
+- **Technical Indicators**: Toggleable **20-Day Simple Moving Average (SMA)** on price charts.
+- **Global Indices**: Quick-look cards for **S&P 500**, **NASDAQ 100**, and **Dow Jones**.
+
+---
+
+## 🏗️ Technical Stack & Architecture
+
+- **Framework**: React Native (TypeScript)
+- **Styling**: Vanilla Stylesheet with dynamic theme provider.
+- **Navigation**: React Navigation (Native Stack + Bottom Tabs).
+- **API Handling**: Axios with custom interceptors for caching.
+- **Data Persistence**: React Context API + AsyncStorage.
+- **Visuals**: Victory Native (Charts), React Native SVG.
+
+### 📂 Folder Structure
 ```text
-StockApp/
-├── src/
-│   ├── components/    # Reusable UI (StockCards, State handlers, etc.)
-│   ├── constants/     # Theme tokens and API configuration
-│   ├── context/       # Global State (Theme & Watchlist Providers)
-│   ├── navigation/    # Root and Tab Navigation configurations
-│   ├── screens/       # Core screen components (Explore, Details, etc.)
-│   ├── services/      # API Service layer (Axios + Cache)
-│   ├── types/         # TypeScript interfaces and definitions
-│   └── utils/         # Helpers (Formatters, Cache manager)
-├── App.tsx            # Application entry point & Provider setup
-└── index.js           # Register component
+src/
+├── components/    # Reusable UI Atoms (StockCards, StateViews, Modals)
+├── constants/     # Design Tokens, Theme Definitions, API Configs
+├── context/       # State Management (Theme, Watchlist Store)
+├── navigation/    # Tab & Stack Navigators
+├── screens/       # Full Page Components
+├── services/      # API Layer, Cache Logic, Network Helpers
+├── types/         # TypeScript Interfaces (Stock, News, Cache)
+└── utils/         # Performance Helpers (Formatters, Validators)
 ```
 
 ---
 
-## 🚦 Getting Started
+## � Getting Started
 
-### Prerequisites
-*   Node.js > 18
-*   Android Studio / Xcode (for Emulators)
-*   React Native Environment Setup
-
-### Installation
-1.  **Clone the project**
-2.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
-3.  **Start Metro Bundler**:
-    ```bash
-    npm start
-    ```
-4.  **Run on Android**:
-    ```bash
-    npm run android
-    ```
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+2. **Environment Setup**:
+   - Create a `.env` file in the root directory.
+   - Add your key: `ALPHA_VANTAGE_API_KEY=your_key_here`.
+3. **Run Application**:
+   - Start Metro: `npm start`
+   - Run Android: `npm run android`
 
 ---
 
-## 📈 Evaluation Checklist Compliance
-
-*   [x] **Correctness**: All described backend endpoints integrated and functional.
-*   [x] **Code Quality**: Clean TypeScript, absolute imports, and consistent styling patterns.
-*   [x] **Optimization**: Implemented response caching and staggered API fetching.
-*   [x] **UI/UX**: Dynamic theme, high-quality illustrations, and notch-safe layouts.
+## � Deliverables
+- **GitHub Repository**: [View Source Code](https://github.com/pjbeast23/Groww-StockApp-Assignment)
+- **Working APK**: [Download from Google Drive](YOUR_DRIVE_LINK_HERE)
 
 ---
 
-**Developer**: Antigravity AI
+**Developer**: Paras Jain
 **API Provider**: Alpha Vantage
-**Framework**: React Native 0.76+
+**Focus**: Quality, Performance, & UX
