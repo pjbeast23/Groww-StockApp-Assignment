@@ -1,6 +1,20 @@
-pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
-plugins { id("com.facebook.react.settings") }
-extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+pluginManagement {
+    includeBuild('../node_modules/@react-native/gradle-plugin')
+}
+
+plugins {
+    id('com.facebook.react.settings')
+}
+
+// Keep this for compatibility with current root build.gradle plugin resolution
+includeBuild('../node_modules/@react-native/gradle-plugin')
+
 rootProject.name = 'StockApp'
 include ':app'
-includeBuild('../node_modules/@react-native/gradle-plugin')
+
+reactSettings {
+    // Generate build/generated/autolinking/autolinking.json via RN CLI
+    autolinkLibrariesFromCommand()
+}
+
+
